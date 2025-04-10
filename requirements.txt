@@ -4,6 +4,4 @@ requests
 lxml
 gunicorn
 pybadges
-html.parser
-dataclasses
 setuptools
