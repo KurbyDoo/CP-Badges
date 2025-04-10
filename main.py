@@ -39,7 +39,6 @@ def get_badge(handle, website):
     x = get_info(handle, website)
     rating, color = str(x[0]), str(x[1])
     text = website_text[website.lower()]
-
     if display_logo:
         if display_link:
             badge = pybadges.badge(left_text=text, right_text=rating,

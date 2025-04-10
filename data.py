@@ -28,14 +28,17 @@ def get_info(handle, website):
 
 
 def get_cf(user):
-    url = f'https://www.codeforces.com/profile/{user}'
-    page = requests.get(url)
-    soup = bs(page.text, 'html.parser')
-    s = soup.find_all('span', attrs={'style':'font-weight:bold;'})
-    s=s[-1].text
+    url = f'https://codeforces.com/api/user.rating?handle={user}'
+    # extracting new rating of the most recent contest which is at last row
+    rating = requests.get(url).json()['result'][-1]['newRating']
+    # url = f'https://www.codeforces.com/profile/{user}'
+    # page = requests.get(url)
+    # soup = bs(page.text, 'html.parser')
+    # s = soup.find_all('span', attrs={'style':'font-weight:bold;'})
+    # print(s)
+    # s=s[-1].text
     col = 'red'
-    rating = int(s)
-    y=rating
+    y = int(rating)
     if (y <= 1199):
         col = '#cec8c1'
     elif (y > 1199 and y <= 1399):

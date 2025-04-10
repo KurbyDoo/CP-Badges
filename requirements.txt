@@ -6,3 +6,4 @@ gunicorn
 pybadges
 html.parser
 dataclasses
+setuptools
